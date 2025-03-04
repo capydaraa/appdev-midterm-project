@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Diary ૮ • ﻌ • ა</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'imgs/my-icon2.png' %}">
+    <script>
+        function showPopup(taskId) {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('confirmDeleteBtn').href = '/task_delete/' + taskId + '/';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Welcome to</h2>
+    <h1>Dara To-Do! ૮ • ﻌ • ა </h1>
+    <div class="parent-container">
+        <div class="container-1">
+            <div class="search-box">
+                <form method="GET" action="{% url 'task_list' %}">
+                    <input class="search-field" type="text" name="q" placeholder="🔎 Search tasks..." value="{{ request.GET.q }}">
+                    <button class="search-btn" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="table-main">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="num-col">No.</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th class="date-col">Due Date</th>
+                            <th class="status-col">Status</th>
+                            <th class="action-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="petTable">
+                        {% if tasks %}
+                        {% for task in tasks %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ task.title }}</td>
+                            <td>{{ task.description }}</td>
+                            <td>{{ task.due_date }}</td>
+                            <!-- Set status class based on task status -->
+                            <td
+                                class="{% if task.status == 'Completed' %}status-completed{% elif task.status == 'Pending' %}status-pending{% elif task.status == 'Overdue' %}status-overdue{% endif %}">
+                                {{ task.status }}
+                            </td>
+                            <td>
+                                <a href="{% url 'task_update' task.pk %}"><button class="btn edit-btn"><img
+                                            src="{% static 'imgs/edit-icon.png' %}" alt=""></button></a>
+                                <button class="btn delete-btn" onclick="showPopup('{{ task.pk }}')"><img src="{% static 'imgs/trash-icon-4.png' %}" alt=""></button>
+                                <a href="{% url 'toggle_status' task.pk %}"><button class="btn complete-btn"><img src="{% static 'imgs/check-icon.png' %}" alt=""></button></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="6" style="text-align: center;"><i>Yoo Hoo! No tasks for today!</i> ⸜(｡˃ ᵕ ˂ )⸝♡</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>  
+        <!-- Add Task Form -->          
+        <div class="container-2">
+            <p class="header-task"><b>Add a Task</b></p>
+            <form action="{% url 'task_list' %}" method="post" class="form-container">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="add-btn" type="submit">+ Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete this task?</p>
+            <a id="confirmDeleteBtn" href="#"><button class="btn delete-btn">Yes</button></a>
+            <button class="btn cancel-btn" onclick="hidePopup()">No</button>
+        </div>
+    </div>
+</body>
+
+</html>

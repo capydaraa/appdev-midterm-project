@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h2>Edit Task</h2>
+    <div class="container-2-edit">
+        <form action="{% url 'task_update' task.pk %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="add-btn" type="submit">Update Task</button>
+        </form>
+        <a href="{% url 'task_list' %}"><button class="back-btn">Cancel</button></a>
+
+    </div>
+
+</body>
+</html>

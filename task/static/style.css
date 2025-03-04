@@ -1,0 +1,287 @@
+* {
+    font-family: monospace;
+    text-decoration: none;
+}
+
+a {
+    color: black;
+}
+
+body {
+    background-color: #FEF4F0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+table {
+    width: 100%; 
+    max-width: 800px; 
+    table-layout: fixed;
+    height: fit-content;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #654b2ba5;
+    text-align: left;
+    word-wrap: break-word; 
+}
+
+.num-col{
+    width: 24px;
+}
+
+.status-col{
+    width: 80px;
+}
+
+.action-col{
+    width: 112px;
+}
+
+.date-col{
+    width: 112px;
+}
+
+th {
+    background-color: #f896a37f;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #d3afc469;
+    color: rgb(24, 24, 24);
+}
+
+.edit-btn:hover {
+    background-color: #d3afc4;
+    color: rgb(24, 24, 24);
+    transition: 0.3s;
+}
+
+.delete-btn {
+    background-color: #e3493556;
+    color: white;
+}
+
+.delete-btn > a{
+    color: white;
+}
+
+.delete-btn:hover{
+    background-color: #e34935d7;
+    color: white;
+    transition: 0.3s;
+}
+
+img{
+    width: 12px;
+    height: 12px;
+}
+
+.complete-btn{
+    background-color: #9d9e4a58;
+    color: white;
+}
+
+.complete-btn:hover{
+    background-color: #9C9E4A;
+    transition: 0.3s;
+}
+
+.complete-btn:active{
+    background-color: #9C9E4A;
+}
+
+.complete-btn > a:hover{
+    color: #ffffff;
+}
+
+.add-btn {
+    background-color: #9d9e4a88;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.add-btn:hover {
+    background-color: #9C9E4A;
+    transition: 0.3s;
+}
+
+.back-btn {
+    background-color: #bcbcb5;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 450px;
+}
+
+.back-btn:hover{
+    background-color: #979791;
+    transition: 0.3s;
+}
+
+h2{
+    font-size: 25px;
+    text-align: center;
+}
+
+.gallery-btn {
+    background-color: #e0cf6c;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.parent-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.search-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-2 {
+    width: 30%;
+    padding: 20px;
+    text-align: start;
+    border-radius: 15px;
+    height: fit-content;
+}
+
+.container-2-edit {
+    background-color: #f896a37f;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    text-align: start;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+    align-items: center;
+}
+
+.status-completed {
+    color: green;
+}
+
+.status-pending {
+    color: rgb(207, 172, 30);
+}
+
+.status-overdue {
+    color: red;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+}
+
+.popup-content button {
+    margin: 10px;
+}
+
+.cancel-btn {
+    background-color: #3e3837d7;
+    color: white;
+    transition: 0.3s;
+}
+
+/* FORM */
+
+.form-container {
+    background-color: #f896a34e;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 20px auto;
+    padding: 20px;
+    width: 70%;
+}
+
+.container-2-edit input[type="text"],
+.container-2-edit input[type="date"],
+.container-2-edit textarea {
+    width: 100%; /* Set the width to 100% of the parent container */
+    max-width: 400px; /* Set a maximum width for the input fields */
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container textarea {
+    width: 100%; 
+    max-width: 280px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+
+.search-field{
+    width: 600px;
+    padding: 10px; 
+    margin-right: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+
+.search-btn{
+    padding: 8px; 
+}
+
+.header-task{
+    text-align: center;
+    font-size: 20px;
+}

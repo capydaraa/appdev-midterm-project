@@ -12,25 +12,6 @@ Dara To-Do is a simple task management application built with Django. It allows 
 - Search for tasks
 - Mark tasks as completed or incomplete
 
-## Installation
-
-To get started with the Dara To-Do app, follow these steps:
-
-1. **Clone the repository:**
-   git clone https://github.com/capydaraa/dara-to-do.git
-   cd dara-to-do
-2. **Create a virtual environment:**
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-3. **Install the dependencies:**
-   pip install -r requirements.txt
-4. **Apply the migrations**
-   python manage.py migrate
-5. **Run the development server**
-   python manage.py runserver
-6. Open your browser and navigate to:
-   http://127.0.0.1:8000/
-
 ## Usage
 
 - Add a Task: Fill out the form and click the "+ Add a Task" button.
